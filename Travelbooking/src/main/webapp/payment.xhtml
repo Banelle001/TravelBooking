@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Card Payment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .message {
+            color: #555;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .pay-button {
+            display: inline-block;
+            padding: 15px 25px;
+            background-color: #007bff;
+            color: white;
+            font-size: 1.2em;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .pay-button:hover {
+            background-color: #0056b3;
+        }
+
+        .status-text {
+            font-size: 1.1em;
+            color: #333;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</h:head>
+
+<h:body>
+    <!-- Include Navigation -->
+    <ui:include src="nav.xhtml" />
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Complete Your Payment</h1>
+        <p class="message">
+            We verify every transaction before handing over keys or access to your room.
+        </p>
+
+        <h:form>
+            <!-- Use a hidden command link to trigger status update -->
+            <h:commandLink action="#{paymentBean.updatePaymentStatus}" style="display:none" id="hiddenTrigger" />
+
+            <!-- Actual Paystack link -->
+            <a href="https://paystack.com/pay/m7k67y5i4t" 
+               target="_blank" 
+               class="pay-button"
+               onclick="document.getElementById('form:hiddenTrigger').click(); return true;">
+                Pay Now
+            </a>
+
+            <br/>
+
+            <h:outputText value="#{paymentBean.paymentStatus}" styleClass="status-text" />
+        </h:form>
+    </div>
+
+</h:body>
+
+</html>

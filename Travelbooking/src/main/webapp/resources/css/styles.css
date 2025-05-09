@@ -1,0 +1,76 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 30 Mar 2025, 12:19:50
+    Author     : Banele
+*/
+
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #007bff;
+            color: white;
+        }
+        .logo img {
+            height: 50px;
+        }
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            display: inline;
+        }
+        li a, li button {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        li button {
+            background: transparent;
+            border: 1px solid white;
+            cursor: pointer;
+        }
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: url('hero-image.jpg') center/cover;
+            color: white;
+        }
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .search-bar input, .search-bar select, .search-bar button {
+            padding: 10px;
+            font-size: 16px;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #343a40;
+            color: white;
+            margin-top: 20px;
+        }
+        footer ul {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <title>Booking Confirmation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f8fb;
+            margin: 0;
+            padding: 0;
+        }
+
+        .confirmation-container {
+            max-width: 600px;
+            margin: 80px auto;
+            background: #ffffff;
+            padding: 40px 30px;
+            text-align: center;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2a2a72;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            color: #444;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #ff5e57;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link:hover {
+            background-color: #e14b4a;
+        }
+    </style>
+</h:head>
+<h:body>
+    <div class="confirmation-container">
+        <h1>Booking Confirmed!</h1>
+        <h3>Next Steps</h3>
+        <h:outputText styleClass="message" 
+                      value="Thank you for your reservation. We’ve received your booking details." />
+        <br /><br />
+        <h:outputText styleClass="message"
+                      value="To finalize your booking, please visit your dashboard, open 'My Bookings', and complete the payment." />
+        <br /><br />
+        <h:link outcome="index.xhtml" styleClass="back-link" value="Go back to Home" />
+    </div>
+
+</h:body>
+</html>

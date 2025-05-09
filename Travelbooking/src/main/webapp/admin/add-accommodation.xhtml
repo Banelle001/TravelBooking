@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="jakarta.faces.facelets">
+<h:head>
+    <title>Admin Dashboard - Manage Accommodation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-section {
+            margin-bottom: 40px;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</h:head>
+    <ui:include src="admin_nav.xhtml"/>
+<h:body>
+<div class="container">
+    <h2>Add New Accommodation</h2>
+    <h:form>
+        <div class="form-section">
+            <h:outputLabel for="name" value="Name:" />
+            <h:inputText id="name" value="#{accommodationBean.accommodation.name}" />
+
+            <h:outputLabel for="type" value="Type (Hotel or BnB):" />
+            <h:selectOneMenu id="type" value="#{accommodationBean.accommodation.type}">
+                <f:selectItem itemLabel="Select Type" itemValue="" />
+                <f:selectItem itemLabel="Hotel" itemValue="Hotel" />
+                <f:selectItem itemLabel="BnB" itemValue="BnB" />
+            </h:selectOneMenu>
+
+
+            <h:outputLabel for="image" value="Image URL:" />
+            <h:inputText id="image" value="#{accommodationBean.accommodation.image}" />
+
+            <h:outputLabel for="description" value="Description:" />
+            <h:inputTextarea id="description" value="#{accommodationBean.accommodation.description}" />
+
+            <h:outputLabel for="city" value="City:" />
+            <h:selectOneMenu id="city" value="#{accommodationBean.accommodation.city}">
+                <f:selectItems value="#{cityBean.allCities}" var="city"
+                               itemValue="#{city}" itemLabel="#{city.name}" />
+            </h:selectOneMenu>
+
+            <h:commandButton value="Save Accommodation" action="#{accommodationBean.saveAccommodation}" styleClass="btn" />
+        </div>
+    </h:form>
+
+    <h2>Add New City</h2>
+    <h:form>
+        <div class="form-section">
+            <h:outputLabel for="cityName" value="City Name:" />
+            <h:inputText id="cityName" value="#{cityBean.city.name}" />
+
+            <h:commandButton value="Save City" action="#{cityBean.saveCity}" styleClass="btn" />
+        </div>
+    </h:form>
+
+    <h2>Add New Room Type</h2>
+    <h:form>
+        <div class="form-section">
+            <h:outputLabel for="roomType" value="Room Type:" />
+            <h:selectOneMenu id="roomType" value="#{roomBean.selectedRoom.type}" styleClass="form-control">
+                <f:selectItem itemLabel="Select Room Type" itemValue="" noSelectionOption="true" />
+                <f:selectItem itemLabel="Standard" itemValue="Standard" />
+                <f:selectItem itemLabel="Deluxe" itemValue="Deluxe" />
+                <f:selectItem itemLabel="Family" itemValue="Family" />
+                <f:selectItem itemLabel="Luxury" itemValue="Luxury" />
+            </h:selectOneMenu>
+
+
+            <h:outputLabel for="capacity" value="Capacity:" />
+            <h:inputText id="capacity" value="#{roomBean.selectedRoom.capacity}" styleClass="form-control">
+                <f:validateLongRange minimum="1" maximum="5" />
+            </h:inputText>
+            <h:message for="capacity" style="color:red;" />
+
+
+            <h:outputLabel for="price" value="Price:" />
+            <h:inputText id="price" value="#{roomBean.selectedRoom.price}" />
+
+            <h:outputLabel for="roomDesc" value="Description:" />
+            <h:inputTextarea id="roomDesc" value="#{roomBean.selectedRoom.description}" />
+
+            <h:outputLabel for="acc" value="Accommodation:" />
+            <h:selectOneMenu id="acc" value="#{roomBean.selectedRoom.accommodation}">
+                <f:selectItems value="#{accommodationBean.allAccommodations}" var="acc"
+                               itemValue="#{acc}" itemLabel="#{acc.name}" />
+            </h:selectOneMenu>
+
+            <h:commandButton value="Save Room" action="#{roomBean.saveRoom}" styleClass="btn" />
+        </div>
+    </h:form>
+</div>
+</h:body>
+</html>

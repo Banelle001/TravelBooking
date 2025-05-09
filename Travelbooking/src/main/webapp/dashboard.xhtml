@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+    <title>Traveler Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .dashboard-container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 25px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 18px;
+            background-color: #0066cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .btn:hover {
+            background-color: #004999;
+        }
+
+        .welcome {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+    </style>
+</h:head>
+
+<h:body>
+    <div>
+        <ui:include src="travelerNav.xhtml"/>
+    </div>
+
+    <div class="dashboard-container">
+        <h2>Traveler Dashboard</h2>
+
+        <div class="welcome">
+            <h:outputText value="Welcome, #{userBean.loggedInUser.username}!" />
+        </div>
+        
+    </div>
+
+    <div>
+        <ui:include src="footer.xhtml"/>
+    </div>
+</h:body>
+</html>

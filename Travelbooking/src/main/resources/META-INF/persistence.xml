@@ -1,0 +1,9 @@
+<persistence-unit name="travelPU" transaction-type="JTA">
+    <jta-data-source>jdbc/TravelDB</jta-data-source>
+    <properties>
+        <!-- JDBC Settings (not necessary for JTA) -->
+        <!-- JTA DataSource is sufficient -->
+        <property name="eclipselink.logging.level" value="FINE"/>
+        <property name="eclipselink.ddl-generation" value="create-or-extend-tables"/>
+    </properties>
+</persistence-unit>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+    <title>About TravelEase</title>
+    <h:outputStylesheet library="css" name="styles.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #fafafa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            font-style: italic;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .about-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .about-section {
+            margin-bottom: 1rem;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .about-section h2 {
+            font-size: 1.5rem;
+            color: #0066cc;
+            margin-bottom: 0.8rem;
+        }
+
+        .about-section p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+
+        .about-stats {
+            background: linear-gradient(to right, #d9eaff, #f0faff);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin: 3rem 0;
+        }
+
+        .about-stats h3 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #004080;
+        }
+
+        .about-stats ul {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .about-stats li {
+            text-align: center;
+            padding: 1rem;
+            flex: 1 1 200px;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .about-stats li:hover {
+            transform: scale(1.1);
+        }
+
+        .about-stats i {
+            font-size: 2.5rem;
+            color: #0073e6;
+            margin-bottom: 0.5rem;
+        }
+
+        .mission-statement {
+            background: #fff3e6;
+            padding: 2rem;
+            border-left: 8px solid #ff6600;
+            font-style: italic;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        @keyframes fadeInDown {
+            from {opacity: 0; transform: translateX(-20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        @keyframes fadeInUp {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+    </style>
+</h:head>
+
+<h:body>
+
+    <ui:include src="nav.xhtml" />
+
+     <div class="hero"
+         style="background-image: url('#{resource['images/travel-banner.jpeg']}');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;">
+        <h1>Discover the Heart of TravelEase</h1>
+        <p>Where every journey begins with trust, comfort, and adventure</p>
+    </div>
+
+    <div class="about-container">
+
+        <div class="about-section">
+            <h2>From Humble Beginnings to Global Reach</h2>
+            <p>
+                TravelEase was born in 2025 at the University of Mpumalanga — a simple idea among peers that blossomed into a global travel companion. 
+                Now part of Global Travel Holdings, we help explorers from every walk of life plan smarter, safer, and more soulful adventures.
+            </p>
+        </div>
+
+        <div class="about-section">
+            <h2>Simplifying Travel Through Innovation</h2>
+            <p>
+                With a passion for both wanderlust and technology, TravelEase reimagines how we explore the world. 
+                From dreamy weekend getaways to cross-continental business trips, our platform ensures your journey is smooth from start to stay.
+            </p>
+        </div>
+
+        <div class="about-section">
+            <h2>A Marketplace Without Borders</h2>
+            <p>
+                TravelEase bridges worlds. Our marketplace gives voice to small-town hosts and leading hotel chains alike, 
+                allowing travelers to experience hospitality rooted in culture, comfort, and connection.
+            </p>
+        </div>
+
+        <div class="about-stats">
+            <h3>TravelEase by the Numbers</h3>
+            <ul>
+               <li><i class="fas fa-bed"></i><br/>5+ Listed Accommodations</li>
+                <li><i class="fas fa-users"></i><br/>50+ Happy Travelers</li>
+            </ul>
+        </div>
+
+        <div class="mission-statement">
+            <h2>Our Promise</h2>
+            <p>
+                Wherever the world takes you, TravelEase is your trusted compass. We promise transparency, peace of mind, and a travel experience as unique as you are. 
+                Your journey matters—and we’re here to make it extraordinary.
+            </p>
+        </div>
+
+    </div>
+
+    <ui:include src="footer.xhtml" />
+
+</h:body>
+</html>

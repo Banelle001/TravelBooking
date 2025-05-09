@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core">
+<h:head>
+    <title>Select a Room</title>
+    <meta charset="UTF-8" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            width: 250px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            margin: 0;
+            color: #0066cc;
+        }
+
+        .card-content p {
+            margin: 8px 0;
+        }
+
+        .book-btn {
+            margin-top: 10px;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .book-btn:hover {
+            background-color: #004999;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</h:head>
+<h:body>
+
+    <ui:include src="nav.xhtml"/>
+
+    <div class="container">
+        <h2>Rooms Available at #{accommodationBean.selectedAccommodation.name}</h2>
+
+        <h:panelGroup rendered="#{not empty roomBean.getRoomsByAccommodation(accommodationBean.selectedAccommodation)}">
+            <div class="cards">
+                <ui:repeat value="#{roomBean.getRoomsByAccommodation(accommodationBean.selectedAccommodation)}" var="room">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>#{room.type}</h3>
+                            <p><strong>Max capacity:</strong> #{room.capacity}</p>
+                            <p><strong>Price:</strong> R#{room.price}</p>
+                            <p><strong>Description:</strong> #{room.description}</p>
+                            <p><strong>Address:</strong> #{accommodation.address}</p>
+                            
+                            <h:form>
+                                <h:commandLink value="Book Now"
+                                    action="#{bookingBean.prepareBooking(room.id)}"
+                                    immediate="true" class="book-btn"/>
+
+                            </h:form>
+
+                        </div>
+                    </div>
+                </ui:repeat>
+            </div>
+        </h:panelGroup>
+
+        <h:panelGroup rendered="#{empty roomBean.getRoomsByAccommodation(accommodationBean.selectedAccommodation)}">
+            <div style="text-align:center; margin-top: 40px;">
+                <p>No rooms available at the moment for this accommodation.</p>
+            </div>
+        </h:panelGroup>
+
+        <div class="back-link">
+            <a href="searchResults.xhtml"> Back to Search Results</a>
+        </div>
+    </div>
+
+    <ui:include src="footer.xhtml"/>
+
+</h:body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<head>
+    <title>Travel Booking</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+
+
+ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: inline;
+}
+
+li a, li button {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+li a:hover, li button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+li button {
+    background: transparent;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #343a40;
+    color: white;
+    margin-top: 20px;
+}
+
+footer ul {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+    </style>
+
+</head>
+<body>
+    <footer>
+        <div>
+            <p>2025 Travel Booking System. All Rights Reserved.</p>
+            <ul>
+                <li><h:link outcome="privacy" value="Privacy Policy" /></li>
+                <li><h:link outcome="terms" value="Terms of Service" /></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

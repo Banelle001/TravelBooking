@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<head>
+    <title>Travel Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #003366;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .logo a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            display: inline;
+        }
+
+        li a, li button {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        li a:hover, li button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        li button {
+            background: transparent;
+            border: 1px solid white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            ul {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .logo h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h:form>
+        <nav>
+            <div class="logo">
+                <a href="index.xhtml">
+                    <h2>TravelEase</h2>
+                </a>
+            </div>
+
+            <ul>
+                <li><h:link outcome="index.xhtml" value="Home" /></li>
+                
+                <li><h:link outcome="about.xhtml" value="About" /></li>
+
+                <li><h:link outcome="mybookings.xhtml" value="My Bookings"
+                            rendered="#{userBean.loggedIn}" /></li>
+                            
+
+                <li><h:link outcome="login.xhtml" value="Login"
+                            rendered="#{!userBean.loggedIn}" /></li>
+
+                <li><h:link outcome="signup.xhtml" value="Signup"
+                            rendered="#{!userBean.loggedIn}" /></li>
+                            
+                <li><h:commandLink action="#{userBean.logout}" value="Logout"
+                                   rendered="#{userBean.loggedIn}" styleClass="logout-btn" /></li>
+                                   
+            </ul>
+        </nav>
+    </h:form>
+</body>
+</html>
